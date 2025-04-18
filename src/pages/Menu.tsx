@@ -32,9 +32,9 @@ import {
      const [showToast, setShowToast] = useState(false);
      
      const path = [
-      { name: 'Home', url: '/it35-lab/app/Home', icon: homeOutline },
-      { name: 'About', url: '/it35-lab/app/About', icon: rocketOutline },
-      {name:'Profile', url: '/it35-lab/app/profile', icon: settingsOutline},
+      { name: 'Home', url: '/ias-midterm/app/Home', icon: homeOutline },
+      { name: 'About', url: '/ias-midterm/app/About', icon: rocketOutline },
+      {name:'Profile', url: '/ias-midterm/app/profile', icon: settingsOutline},
     ]
 
     const handleLogout = async () => {
@@ -42,7 +42,7 @@ import {
       if (!error) {
           setShowToast(true);
           setTimeout(() => {
-              navigation.push('/it35-lab', 'back', 'replace'); 
+              navigation.push('/ias-midterm', 'back', 'replace'); 
           }, 300); 
       } else {
           setErrorMessage(error.message);
@@ -69,17 +69,17 @@ import {
                 </IonMenuToggle>
               ))}
   
-              <IonButton routerLink="/it35-lab" routerDirection="back" expand="full">
+              <IonButton routerLink="/ias-midterm" routerDirection="back" expand="full">
                 <IonIcon icon={logOutOutline} slot="start"></IonIcon>Logout
               </IonButton>
             </IonContent>
           </IonMenu>
           <IonRouterOutlet id="main">
-            <Route exact path="/it35-lab/app/Home" component={Home} />
-            <Route exact path="/it35-lab/app/About" component={About} />
-            <Route exact path="/it35-lab/app/profile" component={EditProfilePage} />
-            <Route exact path="/it35-lab/app">
-              <Redirect to="/it35-lab/app/Home" />
+            <Route exact path="/ias-midterm/app/Home" component={Home} />
+            <Route exact path="/ias-midterm/app/About" component={About} />
+            <Route exact path="/ias-midterm/app/profile" component={EditProfilePage} />
+            <Route exact path="/ias-midterm/app">
+              <Redirect to="/ias-midterm/app/Home" />
             
             </Route>
           </IonRouterOutlet>

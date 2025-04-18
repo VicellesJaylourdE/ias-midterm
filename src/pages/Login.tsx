@@ -46,7 +46,7 @@ const Login: React.FC = () => {
 
     setShowToast(true); 
     setTimeout(() => {
-      navigation.push('/it35-lab/app', 'forward', 'replace');
+      navigation.push('/ias-midterm/app', 'forward', 'replace');
     }, 300);
   };
   
@@ -105,7 +105,7 @@ const Login: React.FC = () => {
           Login
         </IonButton>
 
-        <IonButton routerLink="/it35-lab/app/home/signup" expand="full" fill="clear" shape='round'>
+        <IonButton routerLink="ias-midterm/app/home/signup" expand="full" fill="clear" shape='round'>
           Don't have an account?
         </IonButton>
 
