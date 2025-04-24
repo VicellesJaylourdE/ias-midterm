@@ -1,31 +1,26 @@
-
-import { 
+import {
   IonAlert,
-  IonAvatar,
   IonButton,
-  IonContent, 
-  IonIcon, 
-  IonInput, 
-  IonInputPasswordToggle,  
-  IonPage,  
-  IonToast,  
+  IonCard,
+  IonContent,
+  IonInput,
+  IonInputPasswordToggle,
+  IonPage,
+  IonToast,
   useIonRouter
 } from '@ionic/react';
-import { logoIonic } from 'ionicons/icons';
 import { useState } from 'react';
 import { supabase } from '../utils/supabaseClient';
 
-const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => {
-  return (
-    <IonAlert
-      isOpen={isOpen}
-      onDidDismiss={onClose}
-      header="Notification"
-      message={message}
-      buttons={['OK']}
-    />
-  );
-};
+const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => (
+  <IonAlert
+    isOpen={isOpen}
+    onDidDismiss={onClose}
+    header="Notification"
+    message={message}
+    buttons={['OK']}
+  />
+);
 
 const Login: React.FC = () => {
   const navigation = useIonRouter();
@@ -44,75 +39,75 @@ const Login: React.FC = () => {
       return;
     }
 
-    setShowToast(true); 
+    setShowToast(true);
     setTimeout(() => {
-      navigation.push('/ias-midterm/app', 'forward', 'replace');
+      navigation.push('ias-midterm/app', 'forward', 'replace');
     }, 300);
   };
-  
+
   return (
     <IonPage>
-      <IonContent className='ion-padding'>
-        <div style={{
-          display: 'flex',
-          flexDirection:'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          marginTop:'25%'
-        }}>
-          <IonAvatar
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '150px',
-              height: '150px',
-              borderRadius: '50%', 
-              overflow: 'hidden' 
-            }}
-          >
-            <IonIcon 
-              icon={logoIonic}
-              color='primary'
-              style={{ fontSize: '120px', color: '#6c757d' }} 
+      <IonContent className="ion-padding" fullscreen>
+        <div style={{ maxWidth: '400px', margin: 'auto', marginTop: '10%' }}>
+          <IonCard style={{ padding: '24px', borderRadius: '20px' }}>
+            <h1 style={{ fontWeight: 'bold', textAlign: 'left', marginBottom: '10px' }}>
+              Let's<br />Start Learning
+            </h1>
+            <p style={{ textAlign: 'left', color: '#666', marginBottom: '20px' }}>
+              Please login or sign up to continue
+            </p>
+
+            <IonInput
+              placeholder="Your Email"
+              type="email"
+              fill="outline"
+              style={{
+                borderRadius: '12px',
+                marginBottom: '15px',
+                '--highlight-color-focused': '#007BFF',
+                '--border-color': '#007BFF'
+              }}
+              value={email}
+              onIonChange={(e) => setEmail(e.detail.value!)}
             />
-          </IonAvatar>
-          <h1 style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>USER LOGIN</h1>
-          <IonInput
-            label="Email" 
-            labelPlacement="floating" 
-            fill="outline"
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onIonChange={e => setEmail(e.detail.value!)}
-          />
-          <IonInput style={{ marginTop:'10px' }}      
-            fill="outline"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onIonChange={e => setPassword(e.detail.value!)}
-          >
-            <IonInputPasswordToggle slot="end"></IonInputPasswordToggle>
-          </IonInput>
+
+            <IonInput
+              placeholder="Your Password"
+              type="password"
+              fill="outline"
+              style={{
+                borderRadius: '12px',
+                marginBottom: '15px',
+                '--highlight-color-focused': '#007BFF',
+                '--border-color': '#007BFF'
+              }}
+              value={password}
+              onIonChange={(e) => setPassword(e.detail.value!)}
+            >
+              <IonInputPasswordToggle slot="end" />
+            </IonInput>
+
+            <IonButton
+              onClick={doLogin}
+              expand="full"
+              shape="round"
+              style={{
+         
+                color: '#fff',
+          
+              }}
+            >
+              Login
+            </IonButton>
+
+            <p style={{ textAlign: 'center', marginTop: '20px' }}>
+              Already Have An Account? <a href="/ias-midterm/app/home/signup">SignUp</a>
+            </p>
+          </IonCard>
         </div>
-        <IonButton onClick={doLogin} expand="full" shape='round'>
-          Login
-        </IonButton>
 
-        <IonButton routerLink="ias-midterm/app/home/signup" expand="full" fill="clear" shape='round'>
-          Don't have an account?
-        </IonButton>
-
-        {/* Reusable AlertBox Component */}
         <AlertBox message={alertMessage} isOpen={showAlert} onClose={() => setShowAlert(false)} />
 
-        {/* IonToast for success message */}
         <IonToast
           isOpen={showToast}
           onDidDismiss={() => setShowToast(false)}
