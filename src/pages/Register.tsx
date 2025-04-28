@@ -38,6 +38,7 @@ const Register: React.FC = () => {
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
     const [showAlert, setShowAlert] = useState(false);
+    const [agreeTerms, setAgreeTerms] = useState(false);
 
     const validatePassword = (password: string) => {
         const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
@@ -173,34 +174,6 @@ const Register: React.FC = () => {
                         }}
                     />
                     <IonInput
-                        label="First Name"
-                        labelPlacement="stacked"
-                        fill="outline"
-                        value={firstName}
-                        placeholder="Enter your first name"
-                        onIonInput={e => setFirstName(e.detail.value!)}
-                        style={{
-                          borderRadius: '12px',
-                          marginBottom: '10px',
-                          '--highlight-color-focused': '#ACC572',
-                          '--border-color': '#ACC572'
-                        }}
-                    />
-                    <IonInput
-                        label="Last Name"
-                        labelPlacement="stacked"
-                        fill="outline"
-                        value={lastName}
-                        placeholder="Enter your last name"
-                        onIonInput={e => setLastName(e.detail.value!)}
-                        style={{
-                          borderRadius: '12px',
-                          marginBottom: '10px',
-                          '--highlight-color-focused': '#ACC572',
-                          '--border-color': '#ACC572'
-                        }}
-                    />
-                    <IonInput
                         label="Email"
                         labelPlacement="stacked"
                         fill="outline"
@@ -249,7 +222,18 @@ const Register: React.FC = () => {
                     >
                         <IonInputPasswordToggle slot="end" />
                     </IonInput>
-
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '15px', marginTop: '10px', width: '100%' }}>
+             <input
+               type="checkbox"
+               id="terms"
+               checked={agreeTerms}
+               onChange={(e) => setAgreeTerms(e.target.checked)}
+               style={{ marginRight: '8px' }}
+             />
+             <label htmlFor="terms" style={{ fontSize: '14px', color: '#aaa' }}>
+               I agree to the <a href="#" style={{ color: '#A76545', textDecoration: 'none' }}>Terms & Conditions</a>
+             </label>
+           </div>
                     <IonButton
                         expand="full"
                         color="warning"
