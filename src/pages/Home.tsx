@@ -20,7 +20,7 @@ import { Route, Redirect } from 'react-router';
 import Favorites from './home-tabs/Favorites';
 import Feed from './home-tabs/Feed';
 import About_me from './home-tabs/About_me';
-import SignUp from './SignUp';
+import SignUp from './Register';
   const Home: React.FC = () => {
 
     const tabs = [
