@@ -45,7 +45,7 @@ const Login: React.FC = () => {
 
     setShowToast(true);
     setTimeout(() => {
-      navigation.push('/ias-midterm/app', 'forward', 'replace');
+      navigation.push('/MARBF-Cooperative01/app', 'forward', 'replace');
     }, 300);
   };
 
@@ -106,7 +106,7 @@ const Login: React.FC = () => {
             Login
           </IonButton>
 
-          <IonButton routerLink="/ias-midterm/app/home/Register" expand="full" fill="clear" color="success" >
+          <IonButton routerLink="/MARBF-Cooperative01/app/home/Register" expand="full" fill="clear" color="success" >
           Don't have an account?
         </IonButton>
         </div>

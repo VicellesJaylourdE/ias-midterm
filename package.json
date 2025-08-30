@@ -1,9 +1,9 @@
 {
-  "name": "ias-midterm",
+  "name": "MARBF-Cooperative01",
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "VicellesJaylourdE.github.io/ias-midterm",
+  "homepage": "VicellesJaylourdE.github.io/MARBF-Cooperative01",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

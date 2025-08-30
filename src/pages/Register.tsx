@@ -243,7 +243,7 @@ const Register: React.FC = () => {
                     </IonButton>
 
                     <IonButton
-                        routerLink="/ias-midterm"
+                        routerLink="/MARBF-Cooperative01"
                         expand="full"
                         fill="clear"
                         shape="round"
@@ -287,7 +287,7 @@ const Register: React.FC = () => {
                                 <IonCardSubtitle>Check your email for confirmation</IonCardSubtitle>
                             </IonCardHeader>
                             <IonCardContent>
-                                <IonButton routerLink="/ias-midterm" routerDirection="back" color="primary">
+                                <IonButton routerLink="/MARBF-Cooperative01" routerDirection="back" color="primary">
                                     Go to Login
                                 </IonButton>
                             </IonCardContent>

@@ -41,10 +41,10 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-      <Route exact path="/ias-midterm" component={Login} />
-      <Route path="/ias-midterm/app" component={Menu} />
-      <Route exact path="/ias-midterm/app/home/register" component={Register} />
-      <Redirect exact from="/" to="/ias-midterm" />
+      <Route exact path="/MARBF-Cooperative01" component={Login} />
+      <Route path="/MARBF-Cooperative01/app" component={Menu} />
+      <Route exact path="/MARBF-Cooperative01/app/home/register" component={Register} />
+      <Redirect exact from="/" to="/MARBF-Cooperative01" />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

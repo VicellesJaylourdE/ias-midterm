@@ -30,7 +30,7 @@ const EditAccount: React.FC = () => {
           if (sessionError || !session || !session.session) {
             setAlertMessage('You must be logged in to access this page.');
             setShowAlert(true);
-            history.push('/ias-midterm/login'); // Redirect to login if no session is found
+            history.push('/MARBF-Cooperative01/login'); // Redirect to login if no session is found
             return;
           }
       
@@ -161,7 +161,7 @@ const EditAccount: React.FC = () => {
       
         setAlertMessage('Account updated successfully!');
         setShowAlert(true);
-        history.push('/ias-midterm/app');
+        history.push('/MARBF-Cooperative01/app');
       };
       
   
@@ -169,7 +169,7 @@ const EditAccount: React.FC = () => {
       <IonPage>
         <IonHeader>
           <IonButtons slot="start">
-            <IonBackButton defaultHref="/ias-midterm/app" />
+            <IonBackButton defaultHref="/MARBF-Cooperative01/app" />
           </IonButtons>
         </IonHeader>
         <IonContent className="ion-padding">

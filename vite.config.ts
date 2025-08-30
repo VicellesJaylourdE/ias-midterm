@@ -10,7 +10,7 @@ export default defineConfig({
     react(),
     legacy()
   ],
-  base:"ias-midterm",
+  base:"MARBF-Cooperative01",
   test: {
     globals: true,
     environment: 'jsdom',

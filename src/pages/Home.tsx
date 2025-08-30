@@ -24,9 +24,9 @@ import SignUp from './Register';
   const Home: React.FC = () => {
 
     const tabs = [
-      {name:'Feed', tab:'feed',url: '/ias-midterm/app/home/feed', icon: bookOutline},
-      {name:'Favorites',tab:'favorites', url: '/ias-midterm/app/home/favorites', icon: star},
-      {name:'About me',tab:'About Me', url: '/ias-midterm/app/home/about_me', icon: person},
+      {name:'Feed', tab:'feed',url: '/MARBF-Cooperative01/app/home/feed', icon: bookOutline},
+      {name:'Favorites',tab:'favorites', url: '/MARBF-Cooperative01/app/home/favorites', icon: star},
+      {name:'About me',tab:'About Me', url: '/MARBF-Cooperative01/app/home/about_me', icon: person},
     ]
     
     return (
@@ -44,14 +44,14 @@ import SignUp from './Register';
           </IonTabBar>
         <IonRouterOutlet>
 
-          <Route exact path="/ias-midterm/app/home/feed" render={Feed} />
-          <Route exact path="/ias-midterm/app/home/SignUp" component={SignUp} />
-          <Route exact path="/ias-midterm/app/home/favorites" render={Favorites} />
-          <Route exact path="/ias-midterm/app/home/About_me" render={About_me} />
+          <Route exact path="/MARBF-Cooperative01/app/home/feed" render={Feed} />
+          <Route exact path="/MARBF-Cooperative01/app/home/SignUp" component={SignUp} />
+          <Route exact path="/MARBF-Cooperative01/app/home/favorites" render={Favorites} />
+          <Route exact path="/MARBF-Cooperative01/app/home/About_me" render={About_me} />
           
 
-          <Route exact path="/ias-midterm/app/home">
-            <Redirect to="/ias-midterm/app/home/feed" />
+          <Route exact path="/MARBF-Cooperative01/app/home">
+            <Redirect to="/MARBF-Cooperative01/app/home/feed" />
           </Route>
 
         </IonRouterOutlet>

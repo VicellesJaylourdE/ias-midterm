@@ -32,9 +32,9 @@ import {
      const [showToast, setShowToast] = useState(false);
      
      const path = [
-      { name: 'Home', url: '/ias-midterm/app/Home', icon: homeOutline },
-      { name: 'About', url: '/ias-midterm/app/About', icon: rocketOutline },
-      {name:'Profile', url: '/ias-midterm/app/profile', icon: settingsOutline},
+      { name: 'Home', url: '/MARBF-Cooperative01/app/Home', icon: homeOutline },
+      { name: 'About', url: '/MARBF-Cooperative01/app/About', icon: rocketOutline },
+      {name:'Profile', url: '/MARBF-Cooperative01/app/profile', icon: settingsOutline},
     ]
 
     const handleLogout = async () => {
@@ -42,7 +42,7 @@ import {
       if (!error) {
           setShowToast(true);
           setTimeout(() => {
-              navigation.push('/ias-midterm', 'back', 'replace'); 
+              navigation.push('/MARBF-Cooperative01', 'back', 'replace'); 
           }, 300); 
       } else {
           setErrorMessage(error.message);
@@ -69,17 +69,17 @@ import {
                 </IonMenuToggle>
               ))}
   
-              <IonButton routerLink="/ias-midterm" routerDirection="back" expand="full">
+              <IonButton routerLink="/MARBF-Cooperative01" routerDirection="back" expand="full">
                 <IonIcon icon={logOutOutline} slot="start"></IonIcon>Logout
               </IonButton>
             </IonContent>
           </IonMenu>
           <IonRouterOutlet id="main">
-            <Route exact path="/ias-midterm/app/Home" component={Home} />
-            <Route exact path="/ias-midterm/app/About" component={About} />
-            <Route exact path="/ias-midterm/app/profile" component={EditProfilePage} />
-            <Route exact path="/ias-midterm/app">
-              <Redirect to="/ias-midterm/app/Home" />
+            <Route exact path="/MARBF-Cooperative01/app/Home" component={Home} />
+            <Route exact path="/MARBF-Cooperative01/app/About" component={About} />
+            <Route exact path="/MARBF-Cooperative01/app/profile" component={EditProfilePage} />
+            <Route exact path="/MARBF-Cooperative01/app">
+              <Redirect to="/MARBF-Cooperative01/app/Home" />
             
             </Route>
           </IonRouterOutlet>
