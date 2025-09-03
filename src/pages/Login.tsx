@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   IonAlert,
-  IonAvatar,
   IonButton,
   IonContent,
   IonInput,
@@ -13,7 +12,6 @@ import {
 
 import { supabase } from '../utils/supabaseClient';
 
-// Reusable AlertBox component
 const AlertBox: React.FC<{ message: string; isOpen: boolean; onClose: () => void }> = ({ message, isOpen, onClose }) => {
   return (
     <IonAlert
@@ -52,63 +50,50 @@ const Login: React.FC = () => {
   return (
     <IonPage>
       <IonContent className="ion-padding">
-        <div className="login-card">
-          <IonAvatar className="avatar-wrapper">
-            <img
-              src="https://i.pinimg.com/originals/46/41/61/4641611401ecb508c625eebe448da663.gif"
-              alt="Salmoon"
+        <div className="login-container">
+          <div className="login-card">
+            <h1 className="login-title">USER LOGIN</h1>
+            <p className="login-subtitle">Please login or sign up to continue</p>
+
+            <IonInput
+              placeholder="Your Email"
+              type="email"
+              fill="outline"
+              className="input-field"
+              value={email}
+              onIonChange={(e) => setEmail(e.detail.value!)}
             />
-            <div className="avatar-glow"></div>
-          </IonAvatar>
 
-          <h1 className="Register-title">USER LOGIN</h1>
-          <p style={{ textAlign: 'left', color: '#666', marginBottom: '20px' }}>
-            Please login or sign up to continue
-          </p>
+            <IonInput
+              placeholder="Your Password"
+              type="password"
+              fill="outline"
+              className="input-field"
+              value={password}
+              onIonChange={(e) => setPassword(e.detail.value!)}
+            >
+              <IonInputPasswordToggle slot="end" />
+            </IonInput>
 
-          <IonInput
-            placeholder="Your Email"
-            type="email"
-            fill="outline"
-            style={{
-              borderRadius: '12px',
-              marginBottom: '10px',
-              '--highlight-color-focused': '#ACC572',
-              '--border-color': '#ACC572'
-            }}
-            value={email}
-            onIonChange={(e) => setEmail(e.detail.value!)}
-          />
+            <IonButton
+              onClick={doLogin}
+              expand="block"
+              fill="solid"
+              className="login-btn"
+            >
+              Sign In
+            </IonButton>
 
-          <IonInput
-            placeholder="Your Password"
-            type="password"
-            fill="outline"
-            style={{
-              borderRadius: '12px',
-              marginBottom: '10px',
-              '--highlight-color-focused': '#ACC572',
-              '--border-color': '#ACC572'
-            }}
-            value={password}
-            onIonChange={(e) => setPassword(e.detail.value!)}
-          >
-            <IonInputPasswordToggle slot="end" />
-          </IonInput>
-
-          <IonButton
-            onClick={doLogin}
-            expand="full"
-            fill="solid"
-            color="warning"
-            style={{ marginTop: '20px' }}
-          >
-            Login
-          </IonButton>
-
-          <IonButton routerLink="/MARBF-Cooperative01/app/home/Register" expand="full" fill="clear" color="success" >
-          Don't have an account?
-        </IonButton>
+            {/* ✅ balik sa LandingPage (/) */}
+            <IonButton
+              routerLink="/"
+              expand="block"
+              fill="clear"
+              className="register-btn"
+            >
+              Don&apos;t have an account?
+            </IonButton>
+          </div>
         </div>
 
         <AlertBox message={alertMessage} isOpen={showAlert} onClose={() => setShowAlert(false)} />
@@ -123,62 +108,61 @@ const Login: React.FC = () => {
         />
       </IonContent>
 
-      {/* Floating Animation and Card Styles */}
+      {/* Styles */}
       <style>
         {`
-          @keyframes floatCard {
-            0%, 100% {
-              transform: translateY(0) rotateX(0deg) rotateZ(0deg);
-              box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 0 0 20px 3px hsla(72, 18.50%, 84.10%, 0.60);
-            }
-            50% {
-              transform: translateY(-20px) rotateX(6deg) rotateZ(-3deg);
-              box-shadow: 0 25px 40px rgba(0, 0, 0, 0.3), 0 0 35px 7px rgba(246, 255, 0, 0.6);
-            }
-          }
-
-          @keyframes floatAvatar {
-            0%, 100% {
-              transform: translateY(0) rotateY(0deg) rotateX(0deg);
-            }
-            50% {
-              transform: translateY(-15px) rotateY(12deg) rotateX(8deg);
-            }
+          .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
           }
 
           .login-card {
-    
-  max-width: 380px;
-  margin: 8% auto 0 auto;
-  padding: 25px 25px 30px 25px;
-  background: #1e1e2f;
-  border-radius: 20px;
-  animation: floatCard 6s ease-in-out infinite;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 8px 20px rgba(246, 255, 0, 0.6);
-}
-
-
-          .login-card ion-input {
-            width: 100%;
-            margin-top: 15px;
+            width: 360px;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
-          .login-card ion-button {
-            width: 100%;
+          .login-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 8px;
           }
 
-          .avatar-wrapper {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            overflow: hidden;
-            animation: floatAvatar 6s ease-in-out infinite;
-            cursor: default;
+          .login-subtitle {
+            font-size: 14px;
+            color: #333;
+            text-align: center;
             margin-bottom: 20px;
+          }
+
+          .input-field {
+            width: 100%;
+            margin-bottom: 12px;
+            --highlight-color-focused: #9ACD32;
+            --border-color: #9ACD32;
+            --color: black;
+          }
+
+          .login-btn {
+            --background: #9ACD32;
+            --color: black;
+            width: 100%;
+            margin-top: 10px;
+          }
+
+          .register-btn {
+            --color: green;
+            margin-top: 8px;
+            font-weight: bold;
+            text-transform: none;
           }
         `}
       </style>

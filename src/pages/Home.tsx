@@ -17,9 +17,6 @@ import {
 import { IonReactRouter } from '@ionic/react-router';
 import { bookOutline, person, search, star } from 'ionicons/icons';
 import { Route, Redirect } from 'react-router';
-import Favorites from './home-tabs/Favorites';
-import Feed from './home-tabs/Feed';
-import About_me from './home-tabs/About_me';
 import SignUp from './Register';
   const Home: React.FC = () => {
 
@@ -44,11 +41,7 @@ import SignUp from './Register';
           </IonTabBar>
         <IonRouterOutlet>
 
-          <Route exact path="/MARBF-Cooperative01/app/home/feed" render={Feed} />
-          <Route exact path="/MARBF-Cooperative01/app/home/SignUp" component={SignUp} />
-          <Route exact path="/MARBF-Cooperative01/app/home/favorites" render={Favorites} />
-          <Route exact path="/MARBF-Cooperative01/app/home/About_me" render={About_me} />
-          
+        
 
           <Route exact path="/MARBF-Cooperative01/app/home">
             <Redirect to="/MARBF-Cooperative01/app/home/feed" />
